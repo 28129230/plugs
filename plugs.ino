@@ -38,8 +38,8 @@ void loop()
 		for(int i=0;i<=7;i++)//遍历字符串（继电器只有8个口）
 		{
 			plugContral(i,contComm[i]);//按字符串对应字符控制继电器
-			currState[i]=digitalRead(plugs[i]);
-			Serial.print(currState[i],DEC);
+			currState[i]=digitalRead(plugs[i]);//把当前数字端口的状态写入数组
+			Serial.print(currState[i],DEC);//把当前状态值发送到串口
 		}
 		contComm="";//把字符串清空
 		
