@@ -14,15 +14,18 @@ void setup()
 
 void plugContral(int plugNum,char state)//插口控制函数，带2个参数，插口编号从0-7，状态为‘c’或‘o’
 {
-	if(state == 'c')//如果State是'c'，就是close的缩写，表示端口通电
+	if(state=='c'||state=='o')//判断一下字符是不是'c'或'o'
 	{
-		digitalWrite(plugs[plugNum],LOW);//继电器用的是低电平有效，低电平表示通电
-		delay(200);//等待一下，有节奏感
-	}
-	else
-	{
-		digitalWrite(plugs[plugNum],HIGH);//关闭一般用字符'o'，控制继电器断电
-		delay(200);
+		if(state == 'c')//如果State是'c'，就是close的缩写，表示端口通电
+		{
+			digitalWrite(plugs[plugNum],LOW);//继电器用的是低电平有效，低电平表示通电
+			delay(200);//等待一下，有节奏感
+		}
+		else
+		{
+			digitalWrite(plugs[plugNum],HIGH);//关闭一般用字符'o'，控制继电器断电
+			delay(200);
+		}
 	}
 }
 
